@@ -4,6 +4,9 @@
  */
 package Principal;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Nicolas
@@ -30,24 +33,42 @@ public class frmGerente extends javax.swing.JPanel {
         txtMenuCajero = new javax.swing.JLabel();
         Button_VisualizarInformacion = new javax.swing.JButton();
         Button_GenerarInformes = new javax.swing.JButton();
+        jButton_CerrarSesion = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         txtMenuCajero.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         txtMenuCajero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMenuCajero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagene/favicon.png"))); // NOI18N
         txtMenuCajero.setText("MENU GERENTE");
 
+        Button_VisualizarInformacion.setBackground(new java.awt.Color(204, 204, 255));
+        Button_VisualizarInformacion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_VisualizarInformacion.setText("VISUALIZAR INFORMACION");
+        Button_VisualizarInformacion.setBorder(null);
         Button_VisualizarInformacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_VisualizarInformacionActionPerformed(evt);
             }
         });
 
+        Button_GenerarInformes.setBackground(new java.awt.Color(204, 204, 255));
+        Button_GenerarInformes.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_GenerarInformes.setText("GENERAR INFORMES");
+        Button_GenerarInformes.setBorder(null);
         Button_GenerarInformes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_GenerarInformesActionPerformed(evt);
+            }
+        });
+
+        jButton_CerrarSesion.setBackground(new java.awt.Color(204, 204, 255));
+        jButton_CerrarSesion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton_CerrarSesion.setText("Cerrar Sesion");
+        jButton_CerrarSesion.setBorder(null);
+        jButton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CerrarSesionActionPerformed(evt);
             }
         });
 
@@ -59,12 +80,13 @@ public class frmGerente extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Button_VisualizarInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Button_GenerarInformes, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Button_VisualizarInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                            .addComponent(Button_GenerarInformes, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                            .addComponent(txtMenuCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(txtMenuCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(92, 92, 92))
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,7 +98,9 @@ public class frmGerente extends javax.swing.JPanel {
                 .addComponent(Button_GenerarInformes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Button_VisualizarInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -87,7 +111,7 @@ public class frmGerente extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>                        
 
@@ -99,12 +123,24 @@ public class frmGerente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                      
 
+    private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        JFrame Login = new JFrame("Login");
+        Login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Login.add(new frmlogin());
+        Login.pack();
+        Login.setLocationRelativeTo(null);
+        Login.setVisible(true);
+
+        JFrame loginFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        loginFrame.dispose();
+    }                                                    
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton Button_GenerarInformes;
     private javax.swing.JButton Button_VisualizarInformacion;
+    private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel txtMenuCajero;
     // End of variables declaration                   
 }
-

@@ -4,6 +4,9 @@
  */
 package Principal;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Nicolas
@@ -36,61 +39,95 @@ public class frmAdministrador extends javax.swing.JPanel {
         Button_RegistrarReservas4 = new javax.swing.JButton();
         Button_RegistrarReservas5 = new javax.swing.JButton();
         Button_RegistrarReservas6 = new javax.swing.JButton();
+        jButton_CerrarSesion = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtAdministrador.setBackground(new java.awt.Color(255, 255, 255));
         txtAdministrador.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         txtAdministrador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAdministrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagene/favicon.png"))); // NOI18N
         txtAdministrador.setText("MENU ADMINISTRADOR");
 
+        Button_RegistrarReservas.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas.setText("GESTIONAR CLIENTES");
+        Button_RegistrarReservas.setBorder(null);
         Button_RegistrarReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservasActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas1.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas1.setText("GESTIONAR HABITACIONES");
+        Button_RegistrarReservas1.setBorder(null);
         Button_RegistrarReservas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas1ActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas2.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas2.setText("GESTIONAR USUARIOS");
+        Button_RegistrarReservas2.setBorder(null);
         Button_RegistrarReservas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas2ActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas3.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas3.setText("GESTIONAR SERVICIOS");
+        Button_RegistrarReservas3.setBorder(null);
         Button_RegistrarReservas3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas3ActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas4.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas4.setText("TAREAS DE LOS DEMAS PERFILES");
+        Button_RegistrarReservas4.setBorder(null);
         Button_RegistrarReservas4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas4ActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas5.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas5.setText("GESTIONAR RESERVAS");
+        Button_RegistrarReservas5.setBorder(null);
         Button_RegistrarReservas5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas5ActionPerformed(evt);
             }
         });
 
+        Button_RegistrarReservas6.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas6.setText("GESTIONAR INGRESOS");
+        Button_RegistrarReservas6.setBorder(null);
         Button_RegistrarReservas6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservas6ActionPerformed(evt);
+            }
+        });
+
+        jButton_CerrarSesion.setBackground(new java.awt.Color(204, 204, 255));
+        jButton_CerrarSesion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton_CerrarSesion.setText("Cerrar Sesion");
+        jButton_CerrarSesion.setBorder(null);
+        jButton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CerrarSesionActionPerformed(evt);
             }
         });
 
@@ -117,11 +154,13 @@ public class frmAdministrador extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Button_RegistrarReservas6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(Button_RegistrarReservas4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(Button_RegistrarReservas4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(txtAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(59, 59, 59)
+                        .addComponent(txtAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,7 +181,9 @@ public class frmAdministrador extends javax.swing.JPanel {
                     .addComponent(Button_RegistrarReservas3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_RegistrarReservas6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Button_RegistrarReservas4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_RegistrarReservas4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -186,6 +227,18 @@ public class frmAdministrador extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                         
 
+    private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        JFrame Login = new JFrame("Login");
+        Login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Login.add(new frmlogin());
+        Login.pack();
+        Login.setLocationRelativeTo(null);
+        Login.setVisible(true);
+
+        JFrame loginFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        loginFrame.dispose();
+    }                                                    
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton Button_RegistrarReservas;
@@ -195,6 +248,7 @@ public class frmAdministrador extends javax.swing.JPanel {
     private javax.swing.JButton Button_RegistrarReservas4;
     private javax.swing.JButton Button_RegistrarReservas5;
     private javax.swing.JButton Button_RegistrarReservas6;
+    private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel txtAdministrador;
