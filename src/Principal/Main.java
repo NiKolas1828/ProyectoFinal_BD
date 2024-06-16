@@ -3,6 +3,10 @@ package Principal;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+//import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +16,31 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
+        try {
+            Connection connection = DatabaseConnection.getConnection();
+            if (connection != null) {
+                System.out.println("Conexión exitosa a la base de datos!");
+
+                // Ejecutar una consulta simple
+                String query = "SELECT version()";
+                java.sql.Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                // Procesar los resultados
+                if (rs.next()) {
+                    System.out.println("Versión de PostgreSQL: " + rs.getString(1));
+                }
+
+                // Cerrar la conexión
+                rs.close();
+                stmt.close();
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al conectar con la base de datos.");
+        }
+
         // Create the main frame
         JFrame frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -211,4 +240,3 @@ class frmlogin extends JPanel {
         txtPassword.setText("");
     }
 }
-

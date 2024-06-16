@@ -4,6 +4,11 @@
  */
 package Principal;
 
+import javax.swing.JFrame;
+
+import SubVentanas.frmCliente;
+import SubVentanas.frmReservas;
+
 /**
  *
  * @author Nicolas
@@ -130,7 +135,12 @@ public class frmRecepcionista extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void Button_RegistrarReservasActionPerformed(java.awt.event.ActionEvent evt) {                                                         
-        // TODO add your handling code here:
+        JFrame Reserva = new JFrame("Reserva");
+        Reserva.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Reserva.add(new frmReservas());
+        Reserva.pack();
+        Reserva.setLocationRelativeTo(null);
+        Reserva.setVisible(true);
     }                                                        
 
     private void Button_RegistrarServiciosActionPerformed(java.awt.event.ActionEvent evt) {                                                          
@@ -138,7 +148,12 @@ public class frmRecepcionista extends javax.swing.JPanel {
     }                                                         
 
     private void Button_RegistrarIngresosActionPerformed(java.awt.event.ActionEvent evt) {                                                         
-        // TODO add your handling code here:
+        JFrame IngresoCliente = new JFrame("Ingreso Cliente");
+        IngresoCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        IngresoCliente.add(new frmCliente());
+        IngresoCliente.pack();
+        IngresoCliente.setLocationRelativeTo(null);
+        IngresoCliente.setVisible(true);
     }                                                        
 
     private void Button_ConsultarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {                                                               
