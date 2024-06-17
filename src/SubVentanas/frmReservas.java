@@ -4,6 +4,11 @@
  */
 package SubVentanas;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+import Principal.frmRecepcionista;
+
 /**
  *
  * @author Nicolas
@@ -26,6 +31,7 @@ public class frmReservas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jButton_CerrarSesion = new javax.swing.JButton();
         txtIngresoCliente = new javax.swing.JLabel();
         jLabel_CedulaCliente = new javax.swing.JLabel();
         jTextField_CedulaCliente = new javax.swing.JTextField();
@@ -36,25 +42,51 @@ public class frmReservas extends javax.swing.JPanel {
         jLabel_NumeroDias = new javax.swing.JLabel();
         jTextField_NumeroDias = new javax.swing.JTextField();
         jButton_Reservar = new javax.swing.JButton();
+        jButton_Atras = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        jButton_CerrarSesion.setText("Cerrar Sesion");
+        jButton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CerrarSesionActionPerformed(evt);
+            }
+        });
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         txtIngresoCliente.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         txtIngresoCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtIngresoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagene/favicon.png"))); // NOI18N
         txtIngresoCliente.setText("REGISTRO RESERVA");
 
+        jLabel_CedulaCliente.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel_CedulaCliente.setText("CEDULA CLIENTE");
 
+        jLabel_FechaIngreso.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel_FechaIngreso.setText("FECHA DE INGRESO");
 
+        jLabel_NumHabitacion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel_NumHabitacion.setText("NUM DE HABITACION");
 
+        jLabel_NumeroDias.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel_NumeroDias.setText("NUMERO DE DIAS");
 
+        jButton_Reservar.setBackground(new java.awt.Color(204, 204, 255));
+        jButton_Reservar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jButton_Reservar.setText("RESERVAR");
+        jButton_Reservar.setBorder(null);
         jButton_Reservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ReservarActionPerformed(evt);
+            }
+        });
+
+        jButton_Atras.setBackground(new java.awt.Color(204, 204, 255));
+        jButton_Atras.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton_Atras.setText("ATRAS");
+        jButton_Atras.setBorder(null);
+        jButton_Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AtrasActionPerformed(evt);
             }
         });
 
@@ -64,38 +96,34 @@ public class frmReservas extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel_NumHabitacion)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(txtIngresoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_NumeroDias, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_FechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_CedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField_FechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_CedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_NumHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_NumeroDias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 77, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_NumHabitacion)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton_Reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel_NumeroDias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_FechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_CedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_FechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(jTextField_CedulaCliente)
+                            .addComponent(jTextField_NumHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(jTextField_NumeroDias, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(jButton_Reservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(txtIngresoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(txtIngresoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_CedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_CedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -112,7 +140,9 @@ public class frmReservas extends javax.swing.JPanel {
                     .addComponent(jLabel_NumHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_NumHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton_Reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>                        
@@ -121,8 +151,26 @@ public class frmReservas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                
 
+    private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        // TODO add your handling code here:
+    }                                                    
+
+    private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        JFrame Recepcionista = new JFrame("Recepcionista");
+        Recepcionista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Recepcionista.add(new frmRecepcionista());
+        Recepcionista.pack();
+        Recepcionista.setLocationRelativeTo(null);
+        Recepcionista.setVisible(true);
+
+        JFrame ReservaFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        ReservaFrame.dispose();
+    }                                             
+
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton_Atras;
+    private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JButton jButton_Reservar;
     private javax.swing.JLabel jLabel_CedulaCliente;
     private javax.swing.JLabel jLabel_FechaIngreso;

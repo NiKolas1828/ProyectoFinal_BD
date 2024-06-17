@@ -5,6 +5,7 @@
 package Principal;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import SubVentanas.frmCliente;
 import SubVentanas.frmReservas;
@@ -38,52 +39,82 @@ public class frmRecepcionista extends javax.swing.JPanel {
         Button_ConsultarDisponibilidad = new javax.swing.JButton();
         Button_InfoHab = new javax.swing.JButton();
         Button_CancelarReservas = new javax.swing.JButton();
+        jButton_CerrarSesion = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         txtRecepcionista.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         txtRecepcionista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRecepcionista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagene/favicon.png"))); // NOI18N
         txtRecepcionista.setText("MENU RECEPCIONISTA");
 
+        Button_RegistrarReservas.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarReservas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarReservas.setText("REGISTRAR RESERVAS");
+        Button_RegistrarReservas.setBorder(null);
         Button_RegistrarReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarReservasActionPerformed(evt);
             }
         });
 
+        Button_RegistrarServicios.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarServicios.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarServicios.setText("REGISTRAR SERVICIOS");
+        Button_RegistrarServicios.setBorder(null);
         Button_RegistrarServicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarServiciosActionPerformed(evt);
             }
         });
 
+        Button_RegistrarIngresos.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarIngresos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_RegistrarIngresos.setText("REGISTRAR INGRESOS");
+        Button_RegistrarIngresos.setBorder(null);
         Button_RegistrarIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_RegistrarIngresosActionPerformed(evt);
             }
         });
 
+        Button_ConsultarDisponibilidad.setBackground(new java.awt.Color(204, 204, 255));
+        Button_ConsultarDisponibilidad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_ConsultarDisponibilidad.setText("CONSULTAR DISPONIBILIDAD");
+        Button_ConsultarDisponibilidad.setBorder(null);
         Button_ConsultarDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_ConsultarDisponibilidadActionPerformed(evt);
             }
         });
 
+        Button_InfoHab.setBackground(new java.awt.Color(204, 204, 255));
+        Button_InfoHab.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_InfoHab.setText("INFO HABITACIONES");
+        Button_InfoHab.setBorder(null);
         Button_InfoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_InfoHabActionPerformed(evt);
             }
         });
 
+        Button_CancelarReservas.setBackground(new java.awt.Color(204, 204, 255));
+        Button_CancelarReservas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Button_CancelarReservas.setText("CANCELAR RESERVAS");
+        Button_CancelarReservas.setBorder(null);
         Button_CancelarReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_CancelarReservasActionPerformed(evt);
+            }
+        });
+
+        jButton_CerrarSesion.setBackground(new java.awt.Color(204, 204, 255));
+        jButton_CerrarSesion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton_CerrarSesion.setText("Cerrar Sesion");
+        jButton_CerrarSesion.setBorder(null);
+        jButton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CerrarSesionActionPerformed(evt);
             }
         });
 
@@ -92,26 +123,30 @@ public class frmRecepcionista extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Button_RegistrarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Button_ConsultarDisponibilidad))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Button_RegistrarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Button_RegistrarIngresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Button_RegistrarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button_ConsultarDisponibilidad))
+                        .addGap(72, 72, 72)
+                        .addComponent(txtRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(txtRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Button_RegistrarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button_RegistrarIngresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addGap(144, 144, 144)
+                        .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +165,9 @@ public class frmRecepcionista extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
     }// </editor-fold>                        
 
@@ -141,6 +178,9 @@ public class frmRecepcionista extends javax.swing.JPanel {
         Reserva.pack();
         Reserva.setLocationRelativeTo(null);
         Reserva.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
     }                                                        
 
     private void Button_RegistrarServiciosActionPerformed(java.awt.event.ActionEvent evt) {                                                          
@@ -154,7 +194,11 @@ public class frmRecepcionista extends javax.swing.JPanel {
         IngresoCliente.pack();
         IngresoCliente.setLocationRelativeTo(null);
         IngresoCliente.setVisible(true);
-    }                                                        
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
+
+    }                                                         
 
     private void Button_ConsultarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {                                                               
         // TODO add your handling code here:
@@ -168,6 +212,18 @@ public class frmRecepcionista extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                       
 
+    private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        JFrame Login = new JFrame("Login");
+        Login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Login.add(new frmlogin());
+        Login.pack();
+        Login.setLocationRelativeTo(null);
+        Login.setVisible(true);
+
+        JFrame loginFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        loginFrame.dispose();
+    }                                                    
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton Button_CancelarReservas;
@@ -176,6 +232,7 @@ public class frmRecepcionista extends javax.swing.JPanel {
     private javax.swing.JButton Button_RegistrarIngresos;
     private javax.swing.JButton Button_RegistrarReservas;
     private javax.swing.JButton Button_RegistrarServicios;
+    private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JLabel txtRecepcionista;
     // End of variables declaration                   
 }
