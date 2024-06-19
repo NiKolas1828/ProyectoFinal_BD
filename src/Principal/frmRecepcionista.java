@@ -7,7 +7,11 @@ package Principal;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import SubVentanas.FrmCotizacion;
 import SubVentanas.frmCliente;
+import SubVentanas.frmDescClienHabi;
+import SubVentanas.frmDisponibilidadHab;
+import SubVentanas.frmPrecioHab;
 import SubVentanas.frmReservas;
 
 /**
@@ -35,11 +39,14 @@ public class frmRecepcionista extends javax.swing.JPanel {
         txtRecepcionista = new javax.swing.JLabel();
         Button_RegistrarReservas = new javax.swing.JButton();
         Button_RegistrarServicios = new javax.swing.JButton();
-        Button_RegistrarIngresos = new javax.swing.JButton();
+        Button_RegistrarCliente = new javax.swing.JButton();
         Button_ConsultarDisponibilidad = new javax.swing.JButton();
         Button_InfoHab = new javax.swing.JButton();
         Button_CancelarReservas = new javax.swing.JButton();
         jButton_CerrarSesion = new javax.swing.JButton();
+        Button_DesClientesHab = new javax.swing.JButton();
+        Button_Cotizacion = new javax.swing.JButton();
+        Button_RegistroIngreso = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,13 +75,13 @@ public class frmRecepcionista extends javax.swing.JPanel {
             }
         });
 
-        Button_RegistrarIngresos.setBackground(new java.awt.Color(204, 204, 255));
-        Button_RegistrarIngresos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        Button_RegistrarIngresos.setText("REGISTRAR INGRESOS");
-        Button_RegistrarIngresos.setBorder(null);
-        Button_RegistrarIngresos.addActionListener(new java.awt.event.ActionListener() {
+        Button_RegistrarCliente.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistrarCliente.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        Button_RegistrarCliente.setText("REGISTRAR CLIENTE");
+        Button_RegistrarCliente.setBorder(null);
+        Button_RegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_RegistrarIngresosActionPerformed(evt);
+                Button_RegistrarClienteActionPerformed(evt);
             }
         });
 
@@ -118,33 +125,70 @@ public class frmRecepcionista extends javax.swing.JPanel {
             }
         });
 
+        Button_DesClientesHab.setBackground(new java.awt.Color(204, 204, 255));
+        Button_DesClientesHab.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        Button_DesClientesHab.setText("DESC_CLIENTES HAB");
+        Button_DesClientesHab.setBorder(null);
+        Button_DesClientesHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_DesClientesHabActionPerformed(evt);
+            }
+        });
+
+        Button_Cotizacion.setBackground(new java.awt.Color(204, 204, 255));
+        Button_Cotizacion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        Button_Cotizacion.setText("COTIZACION");
+        Button_Cotizacion.setBorder(null);
+        Button_Cotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_CotizacionActionPerformed(evt);
+            }
+        });
+
+        Button_RegistroIngreso.setBackground(new java.awt.Color(204, 204, 255));
+        Button_RegistroIngreso.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        Button_RegistroIngreso.setText("REGISTRAR INGRESO");
+        Button_RegistroIngreso.setBorder(null);
+        Button_RegistroIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_RegistroIngresoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(Button_RegistrarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Button_ConsultarDisponibilidad))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(Button_RegistrarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Button_RegistrarIngresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Button_DesClientesHab, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Button_RegistrarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button_ConsultarDisponibilidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Button_RegistrarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button_RegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button_Cotizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(txtRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
+                        .addContainerGap()
+                        .addComponent(Button_RegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -156,18 +200,24 @@ public class frmRecepcionista extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_RegistrarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button_RegistrarIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Button_RegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_RegistrarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_ConsultarDisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_InfoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_Cotizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_DesClientesHab, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_CancelarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_RegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
     }// </editor-fold>                        
 
@@ -181,13 +231,14 @@ public class frmRecepcionista extends javax.swing.JPanel {
 
         JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
         Recepcionista.dispose();
+
     }                                                        
 
     private void Button_RegistrarServiciosActionPerformed(java.awt.event.ActionEvent evt) {                                                          
         // TODO add your handling code here:
     }                                                         
 
-    private void Button_RegistrarIngresosActionPerformed(java.awt.event.ActionEvent evt) {                                                         
+    private void Button_RegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                        
         JFrame IngresoCliente = new JFrame("Ingreso Cliente");
         IngresoCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         IngresoCliente.add(new frmCliente());
@@ -197,15 +248,30 @@ public class frmRecepcionista extends javax.swing.JPanel {
 
         JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
         Recepcionista.dispose();
-
-    }                                                         
+    }                                                       
 
     private void Button_ConsultarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {                                                               
-        // TODO add your handling code here:
+        JFrame Disponibilidad = new JFrame("Consulta Disponibilidad");
+        Disponibilidad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Disponibilidad.add(new frmDisponibilidadHab());
+        Disponibilidad.pack();
+        Disponibilidad.setLocationRelativeTo(null);
+        Disponibilidad.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
     }                                                              
 
     private void Button_InfoHabActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
+        JFrame PrecioHab = new JFrame("PrecioHab");
+        PrecioHab.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        PrecioHab.add(new frmPrecioHab());
+        PrecioHab.pack();
+        PrecioHab.setLocationRelativeTo(null);
+        PrecioHab.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
     }                                              
 
     private void Button_CancelarReservasActionPerformed(java.awt.event.ActionEvent evt) {                                                        
@@ -224,14 +290,45 @@ public class frmRecepcionista extends javax.swing.JPanel {
         loginFrame.dispose();
     }                                                    
 
+    private void Button_DesClientesHabActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        JFrame DescClienteHab = new JFrame("DescClienteHab");
+        DescClienteHab.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DescClienteHab.add(new frmDescClienHabi());
+        DescClienteHab.pack();
+        DescClienteHab.setLocationRelativeTo(null);
+        DescClienteHab.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
+    }                                                     
+
+    private void Button_CotizacionActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        JFrame Cotizacion = new JFrame("Cotizacion");
+        Cotizacion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Cotizacion.add(new FrmCotizacion());
+        Cotizacion.pack();
+        Cotizacion.setLocationRelativeTo(null);
+        Cotizacion.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
+    }                                                 
+
+    private void Button_RegistroIngresoActionPerformed(java.awt.event.ActionEvent evt) {                                                       
+        // TODO add your handling code here:
+    }                                                      
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton Button_CancelarReservas;
     private javax.swing.JButton Button_ConsultarDisponibilidad;
+    private javax.swing.JButton Button_Cotizacion;
+    private javax.swing.JButton Button_DesClientesHab;
     private javax.swing.JButton Button_InfoHab;
-    private javax.swing.JButton Button_RegistrarIngresos;
+    private javax.swing.JButton Button_RegistrarCliente;
     private javax.swing.JButton Button_RegistrarReservas;
     private javax.swing.JButton Button_RegistrarServicios;
+    private javax.swing.JButton Button_RegistroIngreso;
     private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JLabel txtRecepcionista;
     // End of variables declaration                   
