@@ -6,6 +6,7 @@ package Principal;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import SubVentanas.frmInformes;
 
 /**
  *
@@ -120,7 +121,15 @@ public class frmGerente extends javax.swing.JPanel {
     }                                                            
 
     private void Button_GenerarInformesActionPerformed(java.awt.event.ActionEvent evt) {                                                       
-        // TODO add your handling code here:
+        JFrame Informes = new JFrame("Informes");
+        Informes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Informes.add(new frmInformes());
+        Informes.pack();
+        Informes.setLocationRelativeTo(null);
+        Informes.setVisible(true);
+
+        JFrame Recepcionista = (JFrame) SwingUtilities.getWindowAncestor(this);
+        Recepcionista.dispose();
     }                                                      
 
     private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {                                                     

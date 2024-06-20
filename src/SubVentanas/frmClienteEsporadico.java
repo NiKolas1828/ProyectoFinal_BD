@@ -14,18 +14,17 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import Principal.frmRecepcionista;
 
 /**
  *
  * @author Nicolas
  */
-public class frmCliente extends javax.swing.JPanel {
+public class frmClienteEsporadico extends javax.swing.JPanel {
 
     /**
      * Creates new form frmCliente
      */
-    public frmCliente() {
+    public frmClienteEsporadico() {
         initComponents();
     }
 
@@ -53,7 +52,7 @@ public class frmCliente extends javax.swing.JPanel {
         txtIngresoCliente.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         txtIngresoCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtIngresoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagene/favicon.png"))); // NOI18N
-        txtIngresoCliente.setText("INGRESO CLIENTE");
+        txtIngresoCliente.setText("INGRESO CLIENTE HABITUAL");
 
         Label_NombreCliente.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         Label_NombreCliente.setText("NOMBRE");
@@ -145,15 +144,15 @@ public class frmCliente extends javax.swing.JPanel {
         String cedulaStr = jTextField_CedulaCliente.getText();
         int cedulaInt = Integer.parseInt(cedulaStr);
         String telefono = jTextField_TelefonoCliente.getText();
-
+    
         String url = "jdbc:postgresql://localhost:5432/ProyectoFinal";
         String usuario = "postgres";
         String contraseña = "Nicolas1118";
-
+    
         String sqlVerificar = "SELECT COUNT(*) FROM cliente WHERE cedula = ?";
-
-        String sqlInsertar = "INSERT INTO cliente (nombre, cedula, telefono) VALUES (?, ?, ?)";
-
+        String sqlInsertarCliente = "INSERT INTO cliente (nombre, cedula, telefono) VALUES (?, ?, ?)";
+        String sqlInsertarEsporadico = "INSERT INTO esporadico (codigo_e, cedula) VALUES (?, ?)";
+    
         try (Connection conn = DriverManager.getConnection(url, usuario, contraseña)) {
             // Verificar si la cédula ya está registrada
             try (PreparedStatement pstmtVerificar = conn.prepareStatement(sqlVerificar)) {
@@ -161,47 +160,54 @@ public class frmCliente extends javax.swing.JPanel {
                 ResultSet rs = pstmtVerificar.executeQuery();
                 rs.next();
                 int count = rs.getInt(1);
-
+    
                 if (count > 0) {
                     JOptionPane.showMessageDialog(this, "Error: La cédula ya está registrada", "Error", JOptionPane.ERROR_MESSAGE);
                     return; // Salir del método si la cédula ya existe
                 }
             }
-
-            try (PreparedStatement pstmtInsertar = conn.prepareStatement(sqlInsertar)) {
-                pstmtInsertar.setString(1, nombre);
-                pstmtInsertar.setInt(2, cedulaInt);
-                pstmtInsertar.setString(3, telefono);
-                pstmtInsertar.executeUpdate();
-
-                JOptionPane.showMessageDialog(this, "Cliente ingresado correctamente");
-
-                // Cerrar la ventana de ingreso cliente
-                JFrame Recepcionista = new JFrame("Recepcionista");
-                Recepcionista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Recepcionista.add(new frmRecepcionista());
-                Recepcionista.pack();
-                Recepcionista.setLocationRelativeTo(null);
-                Recepcionista.setVisible(true);
-
-                JFrame ClienteFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-                ClienteFrame.dispose();
-
-
+    
+            // Insertar en la tabla cliente
+            try (PreparedStatement pstmtInsertarCliente = conn.prepareStatement(sqlInsertarCliente)) {
+                pstmtInsertarCliente.setString(1, nombre);
+                pstmtInsertarCliente.setInt(2, cedulaInt);
+                pstmtInsertarCliente.setString(3, telefono);
+                pstmtInsertarCliente.executeUpdate();
             }
-
+    
+            // Insertar en la tabla esporadico
+            try (PreparedStatement pstmtInsertarEsporadico = conn.prepareStatement(sqlInsertarEsporadico)) {
+                pstmtInsertarEsporadico.setInt(1, cedulaInt);
+                pstmtInsertarEsporadico.setInt(2, cedulaInt);
+                pstmtInsertarEsporadico.executeUpdate();
+            }
+    
+            JOptionPane.showMessageDialog(this, "Cliente ingresado correctamente");
+    
+            // Cerrar la ventana de ingreso cliente
+            JFrame Recepcionista = new JFrame("Recepcionista");
+            Recepcionista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Recepcionista.add(new frmDireccionIngresoCliente());
+            Recepcionista.pack();
+            Recepcionista.setLocationRelativeTo(null);
+            Recepcionista.setVisible(true);
+    
+            JFrame ClienteFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            ClienteFrame.dispose();
+    
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al ingresar cliente: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }                                                       
+    }
+                                                          
 
     private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        JFrame Recepcionista = new JFrame("Recepcionista");
-        Recepcionista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Recepcionista.add(new frmRecepcionista());
-        Recepcionista.pack();
-        Recepcionista.setLocationRelativeTo(null);
-        Recepcionista.setVisible(true);
+        JFrame Administrador = new JFrame("Administrador");
+        Administrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Administrador.add(new frmDireccionIngresoCliente());
+        Administrador.pack();
+        Administrador.setLocationRelativeTo(null);
+        Administrador.setVisible(true);
 
         JFrame ClienteFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         ClienteFrame.dispose();

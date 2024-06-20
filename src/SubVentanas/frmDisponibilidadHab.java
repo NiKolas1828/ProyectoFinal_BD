@@ -152,9 +152,8 @@ public class frmDisponibilidadHab extends javax.swing.JPanel {
             while (rs.next()) {
                 int id = rs.getInt("num_hab");
                 String tipo = rs.getString("tipo");
-                String descripcion = rs.getString("estado");
                 // Append data to the text area
-                jTextArea_MostrarDisponibilidad.append("Num_Hab: " + id + ", Tipo: " + tipo + ", Estado: " + descripcion + "\n");
+                jTextArea_MostrarDisponibilidad.append("Num_Hab: " + id + ", Tipo: " + tipo + "\n");
             }
 
         } catch (SQLException ex) {

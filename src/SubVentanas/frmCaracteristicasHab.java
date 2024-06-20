@@ -3,7 +3,7 @@ package SubVentanas;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import Principal.frmRecepcionista;
+import Principal.frmGerente;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,9 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class frmPrecioHab extends javax.swing.JPanel {
+public class frmCaracteristicasHab extends javax.swing.JPanel {
 
-    public frmPrecioHab() {
+    public frmCaracteristicasHab() {
         initComponents();
         initializeComboBox();
     }
@@ -175,12 +175,12 @@ public class frmPrecioHab extends javax.swing.JPanel {
     }
 
     private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {
-        JFrame Recepcionista = new JFrame("Recepcionista");
-        Recepcionista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Recepcionista.add(new frmRecepcionista());
-        Recepcionista.pack();
-        Recepcionista.setLocationRelativeTo(null);
-        Recepcionista.setVisible(true);
+        JFrame Gerente = new JFrame("Gerente");
+        Gerente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Gerente.add(new frmGerente());
+        Gerente.pack();
+        Gerente.setLocationRelativeTo(null);
+        Gerente.setVisible(true);
 
         JFrame PrecioHabFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         PrecioHabFrame.dispose();
