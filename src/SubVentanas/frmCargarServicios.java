@@ -176,8 +176,9 @@ public class frmCargarServicios extends javax.swing.JPanel {
                 stmtCedula.setInt(1, cedula_cliente);
                 try (ResultSet rsCedula = stmtCedula.executeQuery()) {
                     if (!rsCedula.next()) {
-                        // Cedula no encontrada
-                        // Aquí puedes manejar la lógica de error o mensaje al usuario
+                        javax.swing.JOptionPane.showMessageDialog(this, "Cedula no encontrada ");
+
+
                         return;
                     }
                 }
@@ -189,8 +190,7 @@ public class frmCargarServicios extends javax.swing.JPanel {
                 stmtServicio.setInt(1, codigo_servicio);
                 try (ResultSet rsServicio = stmtServicio.executeQuery()) {
                     if (!rsServicio.next()) {
-                        // Codigo de servicio no encontrado
-                        // Aquí puedes manejar la lógica de error o mensaje al usuario
+                        javax.swing.JOptionPane.showMessageDialog(this, "Codigo de servicio no encontrado ");
                         return;
                     }
                 }
@@ -209,8 +209,7 @@ public class frmCargarServicios extends javax.swing.JPanel {
                         }
                     }
                     if (!reservaValida) {
-                        // Reserva no encontrada para el cliente y servicio especificados
-                        // Aquí puedes manejar la lógica de error o mensaje al usuario
+                        javax.swing.JOptionPane.showMessageDialog(this, "Reserva no encontrada para el cliente y servicio especificados ");
                         return;
                     }
                 }
@@ -227,8 +226,7 @@ public class frmCargarServicios extends javax.swing.JPanel {
                 if (generatedKeys.next()) {
                     cod_check_out = generatedKeys.getInt(1);
                 } else {
-                    // Error al obtener el código generado
-                    // Aquí puedes manejar la lógica de error o mensaje al usuario
+                    javax.swing.JOptionPane.showMessageDialog(this, "Error al obtener el código generado ");
                     return;
                 }
 
@@ -245,7 +243,7 @@ public class frmCargarServicios extends javax.swing.JPanel {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Aquí maneja la excepción adecuadamente
+
         }
     }
 
@@ -263,9 +261,6 @@ public class frmCargarServicios extends javax.swing.JPanel {
 				if (rs.next()) {
 					cod_reserva = rs.getInt("codigo_reserva");
 				} else {
-					// Si no se encuentra ninguna reserva válida, puedes manejarlo aquí
-					// Por ejemplo, lanzar una excepción o devolver un valor específico
-					// Dependiendo de tus requisitos de negocio
 					throw new SQLException("No se encontró una reserva válida para el cliente y el servicio especificados.");
 				}
 			}

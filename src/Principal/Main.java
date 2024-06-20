@@ -56,8 +56,6 @@ public class Main {
 class frmlogin extends JPanel {
 
     public static frmCajero frmc;
-    //private JTextField txtUsername;
-    //private JPasswordField txtPassword;
 
     // Map to store username, password, and role
     private Map<String, String[]> userDatabase;
@@ -67,7 +65,6 @@ class frmlogin extends JPanel {
         initializeUserDatabase();
     }
 
-    // Initialize user database with some example users
     private void initializeUserDatabase() {
         userDatabase = new HashMap<>();
         userDatabase.put("cajero1", new String[]{"password1", "cajero"});
@@ -75,7 +72,6 @@ class frmlogin extends JPanel {
         userDatabase.put("Alexis", new String[]{"12345", "Gerente"});
         userDatabase.put("Santiago", new String[]{"12345", "Recepcionista"});
         userDatabase.put("JuanManuel", new String[]{"12345", "Administrador"});
-        // Agregar más usuarios según sea necesario
     }
 
     //@SuppressWarnings("unchecked")
@@ -184,7 +180,6 @@ class frmlogin extends JPanel {
     }// </editor-fold>                        
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void Button_IngresarActionPerformed(java.awt.event.ActionEvent evt) {                                                
@@ -251,7 +246,6 @@ class frmlogin extends JPanel {
         }
     }                                               
 
-    // Variables declaration - do not modify                     
     private javax.swing.JButton Button_Ingresar;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel_Contraseña;
@@ -261,5 +255,4 @@ class frmlogin extends JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
-    // End of variables declaration                   
-}
+}  

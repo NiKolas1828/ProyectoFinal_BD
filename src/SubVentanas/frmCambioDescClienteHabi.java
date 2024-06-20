@@ -46,7 +46,7 @@ public class frmCambioDescClienteHabi extends javax.swing.JPanel {
         
         // Validar que ambos campos no estén vacíos
         if (cedulaStr.isEmpty() || nuevoDescStr.isEmpty()) {
-            // Aquí podrías mostrar un mensaje de error al usuario
+            javax.swing.JOptionPane.showMessageDialog(null, "Por Favor Ingresa Todos Los Campos");
             return;
         }
         

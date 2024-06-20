@@ -7,6 +7,7 @@ package Principal;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import SubVentanas.frmCambioDescClienteHabi;
 import SubVentanas.frmCambioPrecioHab;
 import SubVentanas.frmDireccionIngresoCliente;
 
@@ -222,7 +223,7 @@ public class frmAdministrador extends javax.swing.JPanel {
     private void Button_GestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {                                                         
         JFrame CambioDescClienteHabi = new JFrame("CambioDescClienteHabi");
         CambioDescClienteHabi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        CambioDescClienteHabi.add(new frmDireccionIngresoCliente());
+        CambioDescClienteHabi.add(new frmCambioDescClienteHabi());
         CambioDescClienteHabi.pack();
         CambioDescClienteHabi.setLocationRelativeTo(null);
         CambioDescClienteHabi.setVisible(true);
